@@ -28,7 +28,7 @@ scissors = '''
 ---.__(___)
 '''
 
-your_selection = int(input("Select 1=rock, 2=paper, 3=scissors: "))
+your_selection = int(input("Select 1=rock, 2=paper, 3=scissors: \n"))
 
 print("Your selection")
 if (your_selection)==1:
