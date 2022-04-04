@@ -1,5 +1,5 @@
 import random
-import hungman_art
+from hungman_art import stages, logo
 import word_list
 
 # word_list = ["abruptly","luxury","numbskull","vixen","quiz","yoked","embezzle","peekaboo"]
@@ -24,7 +24,12 @@ attempts = 0
 
 
 while (("_" in display)and attempts<limit):
+    
     letterGuss = input("Guess letter: \n").lower()
+    
+    while (letterGuss in display):
+        letterGuss = input("Letter was already checked, guess new letter: \n").lower()
+    
     attempts+=1
     counter = 0
     print("Checking: ")
