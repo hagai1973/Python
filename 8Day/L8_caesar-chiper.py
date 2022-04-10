@@ -6,6 +6,9 @@ print(art.logo)
 
 
 def do_encode(text, shift, direction):
+    while shift > 26:
+        shift = shift % 26
+
     alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
     alphabet_upper = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
     after_text =""
@@ -36,32 +39,28 @@ def do_encode(text, shift, direction):
     return after_text  
 
 
-      
-# def do_decode(text, shift):
-#     alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-#     alphabet_upper = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-#     after_text = ""
-#     for x in range(len(text)):
-#           if text[x].lower() in alphabet:  
-#             if (text[x]) in alphabet_upper:
-#                     index =  (len(alphabet) - shift + alphabet.index(text[x].lower()))
-#             else:
-#                     index =  (alphabet.index(text[x])-shift)
-#             after_text += alphabet[index]
-#           else:
-#             after_text += text[x]      
-#     return after_text
+do_continue = True
+decode_text = "no"
 
 
+while (do_continue):
+    decode_text = input("Type 'incode' to encrypt or type 'decode' to decrypt \n")
+    if (decode_text == "incode"):
+        before = input("type your message for encoding: \n")
+        shift = int(input("type the shift number: \n"))    
+        encode = do_encode(before, shift, "encode")
+        print (f"The encoded text is: {encode}")
+    else:
+        encode = input("type your message for decode: \n")
+        shift = int(input("type the shift number: \n"))
+        decode = do_encode(encode, shift, "decode")
+        print (f"The decode text is: {decode}")
 
-before = "all you need is love, be happy do not worry"
-shift = 10
+    result = input("are you want to continue (yes/no): \n")
+    if result == "no":
+        do_continue = False
 
-encode = do_encode(before, shift, "encode")
-print (f"The encoded text is: {encode}")
-decode = do_encode(encode, shift, "decode")
-print (f"The decode text is: {decode}")
-
+print("Goodbye")
 
 
 
