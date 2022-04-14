@@ -3,7 +3,7 @@ import art
 import os
 
 
-to_continue1 = "y"
+
 def play_game():
     os.system('cls')
     print(art.logo)
@@ -103,7 +103,7 @@ def play_game():
         cards_sum_dealer = sum_list_cards(dealer)
         print (f"Dealer cards are:  {dealer}, the sum of dealer cards is: {cards_sum_dealer}")
  
-    while (cards_sum_dealer < 17 or cards_sum_dealer < cards_sum_player1):
+    while (cards_sum_dealer < 17 or cards_sum_dealer < cards_sum_player1) and (keep_check == True):
         get_card(dealer)
         cards_sum_dealer = sum_list_cards(dealer)
         print (f"dealer next card is:  {dealer[-1]}, sum of dealers card is: {cards_sum_dealer}")
@@ -136,7 +136,8 @@ def play_game():
 
 
 
-
-while (to_continue1 == "y"):
+play_game()
+another_game = input("Do you want to play game ? y/n \n")
+while (another_game == "y"):
     play_game()
-    to_continue1 = input("Do you want to play game ? y/n \n")
+    another_game = input("Do you want to play game ? y/n \n")
