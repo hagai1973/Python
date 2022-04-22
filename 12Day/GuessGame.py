@@ -8,14 +8,19 @@ print(art.logo)
 print("Welcome to the Number Guessing Game!")
 print("I'm thinking of a number between 1 and 100.")
 
+EASY_LEVEL_TURNS = 10
+HARD_LEVEL_TURNS = 5
 
-def guess_number(game_level = 'e'):
+
+
+def guess_number(game_level = 'e', random_number = 50):
+    """Verify numbers guessing"""
     counter = 0
     do_found = False
     if game_level == "h":
-        number_of_attempts = 5
+        number_of_attempts = HARD_LEVEL_TURNS
     else:
-        number_of_attempts = 10
+        number_of_attempts = EASY_LEVEL_TURNS
     # print (random_number)
     # print (number_of_attempts)
     
@@ -38,10 +43,11 @@ def guess_number(game_level = 'e'):
          
          
     if not do_found:
-            print("You lost...sorry....")   
+            print("You run out of attemtps, You loos...sorry....")   
+            return
             
 def get_random_number():
-    return random.randint(1, 101)
+    return random.randint(1, 100)
 
 def get_game_level():
     level = input("Choose a difficulty: Hard / Easy (H/E) \n").lower()
@@ -54,11 +60,12 @@ def get_game_level():
 # print(f"random number: {random_number}" )
 
 continue_pleay = "y"
+
 while continue_pleay == "y":
     game_level = get_game_level()
     random_number = get_random_number()
-    guess_number(game_level)
-    continue_pleay = input (f"Do you want to play again ? (y/n) \n ")
+    guess_number(game_level, random_number)
+    continue_pleay = input (f"Do you want to play again ? (y/n) \n ").lower()
     
 
 print("Thank you and see you soon...")
