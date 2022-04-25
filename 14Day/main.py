@@ -3,8 +3,8 @@ import json
 import sys
 from game_data import data
 import os
-from art import logo
-from art import vs
+from art import logo, vs
+
 
 # dumps the json object into an element
 json_str = json.dumps(data)
@@ -97,7 +97,8 @@ while (want_new_game):
         
             #Not first guess: need to keep second guess as first
         first_raound = False
-
+    
+    # Check if user want new game
     answer = input("Do you want to play again ?  Y/N  \n").upper()
     if answer == "Y":
         want_new_game = True
